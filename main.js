@@ -1,110 +1,112 @@
 // CONST & LET
-let name = 'John';
-let test;
 
-name = 'Jack';
+const names = ["karen", "sharon", "flaron"];
+names.push("daren"); // appending values allowed but but reassigning not
+//console.log(names);
 
-const person = {
-  name: 'John',
-  age: 33
-};
-
-person.name = 'Jack';
-
-const nums = [1, 2, 3, 4];
-nums.push(5);
+let name = ["baren", "caren"];
+name = ["faren"]; // reassign allowed
+//console.log(name);
 
 // ARROW FUNCTIONS
 
 function sayHello() {
-  console.log('Hello');
+  console.log("hello");
 }
 
-const sayHello = name => console.log(`Hello ${name}`);
+//sayHello();
 
-const fruits = ['Apples', 'Oranges', 'Grapes'];
+const hello = (name, shame) => {
+  console.log(`helloe ${name}, hou u doin ${shame}`);
+};
+
+//hello("sharon", "karen");
 
 // FOREACH
-fruits.forEach((fruit, index) => console.log(fruit));
+
+names.forEach((name, index) => {
+  //console.log(name, index);
+});
 
 // MAP
-const singleFruit = fruits.map(fruit => fruit.slice(0, -1).toUpperCase());
+
+const mapTest = names.map(
+  name =>
+    //name.slice(0, name.length).toLocaleUpperCase()
+    name[0].toLocaleUpperCase() + name.slice(1, name.length)
+);
+//console.log(mapTest);
 
 // FILTER
-const people = [
-  { id: 1, name: 'Karen' },
-  { id: 2, name: 'Bob' },
-  { id: 3, name: 'Sharon' }
-];
 
-const people2 = people.filter(person => person.id !== 2);
+const myFilter = names.filter(name => name != "karen");
+//console.log(myFilter);
 
 // SPREAD
 
-const arr = [1, 2, 3];
-const arr2 = [...arr, 4];
-const arr3 = [...arr.filter(num => num !== 2)];
-
-const person1 = {
-  name: 'Brad',
-  age: 36
-};
-
-const person2 = {
-  ...person1,
-  email: 'brad@gmail.com'
-};
+const spread1 = [1, 2, 3, 4];
+const spread2 = [...spread1, 5];
+//console.log(spread2);
 
 // DESTRUCTURING
 
-const profile = {
-  name: 'John Doe',
-  address: {
-    street: '40 Main st',
-    city: 'Boston'
-  },
-  hobbies: ['movies', 'music']
+const dest = {
+  name1: "destruction",
+  place: "of your life,",
+  motive: " give me break"
 };
 
-const { name, address, hobbies } = profile;
-const { street, city } = profile.address;
+var { name1, place, motive } = dest; //variable names must match the key values
+//console.log(name1, place, motive);
 
 // CLASSES
-class Person {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
+
+class estuto {
+  constructor(food, drink) {
+    this.food = food;
+    this.drink = drink;
   }
-
-  greet() {
-    return `Hello, my name is ${this.name} and I am ${this.age}`;
-  }
-}
-
-const person1 = new Person('John', 33);
-const person2 = new Person('Sara', 28);
-
-// SUBCLASSES;
-class Customer extends Person {
-  constructor(name, age, balance) {
-    super(name, age);
-    this.balance = balance;
-  }
-
-  info() {
-    return `${this.name} owes $${this.balance}.00`;
+  cState() {
+    return `happy to see you enjoying your ${this.food} marinated in ${
+      this.drink
+    }`;
   }
 }
 
-const customer1 = new Customer('Kevin', 32, 300);
+var estuto1 = new estuto("roasted depression", "humiliation");
+
+//console.log(estuto1.cState());
+
+// SUBCLASSES
+
+class sstuto extends estuto {
+  constructor(food, drink, desert) {
+    super(food, drink);
+    this.desert = desert;
+  }
+  cInfo() {
+    return `happy to see you enjoying your ${this.food} marinated in ${
+      this.drink
+    }, ${this.desert}`;
+  }
+}
+
+var sstuto1 = new sstuto(
+  "roasted depression",
+  "humiliation",
+  "so long howdy partnerr"
+);
+
+console.log(sstuto1.cInfo());
 
 // MODULES
 
-// file 1 (file1.js)
-export const name = 'Jeff';
-export const nums = [1, 2, 3];
-export default Person;
+//file 1 (file1.js)
+//export const name4 = 'keff';
+//export const num4 = [1,2,2,3];
 
-// // file 2 (file2.js)
-import { name, nums } from './file1';
-import Person from './file1';
+//export default ClassName;
+
+//file 2 (file2.js)
+//import {name4, num4} from './file1';
+//import ClassName from './file1';
